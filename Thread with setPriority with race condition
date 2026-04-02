@@ -1,0 +1,31 @@
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class Mythread extends Thread {
+    public Mythread(String name) {
+        super(name);
+    }
+    public void run() {
+        System.out.println(Thread.currentThread().getName() + " - " + Thread.currentThread().getPriority());
+    }
+}
+class Codechef
+{
+    public static void main(String[] args) throws java.lang.Exception
+    {
+        Mythread th1 = new Mythread("Th-1");
+        Mythread th2 = new Mythread("Th-2");
+        Mythread th3 = new Mythread("Th-3");
+
+        th1.setPriority(Thread.MIN_PRIORITY);
+        th2.setPriority(Thread.MAX_PRIORITY);
+        th3.setPriority(Thread.NORM_PRIORITY);
+
+        th1.start();
+        th2.start();
+        th3.start();
+
+
+    }
+}
