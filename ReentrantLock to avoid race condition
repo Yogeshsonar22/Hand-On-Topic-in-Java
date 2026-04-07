@@ -5,11 +5,15 @@ class Counter {
     ReentrantLock lock = new ReentrantLock();
 
     public void increment() {
-        lock.lock();   // acquire lock
-        try {
-            count++;
-        } finally {
-            lock.unlock(); // always release lock
+        if (lock.tryLock()) {   // try to acquire lock
+            try {
+                count++;
+            } finally {
+                lock.unlock();
+            }
+        } else {
+            // lock not available → skip or handle
+            System.out.println(Thread.currentThread().getName() + " skipped");
         }
     }
 }
@@ -20,13 +24,13 @@ public class Main {
         Counter counter = new Counter();
 
         Runnable task = () -> {
-            for (int i = 0; i < 1000000; i++) {
+            for (int i = 0; i < 10; i++) {
                 counter.increment();
             }
         };
 
-        Thread t1 = new Thread(task);
-        Thread t2 = new Thread(task);
+        Thread t1 = new Thread(task, "T1");
+        Thread t2 = new Thread(task, "T2");
 
         t1.start();
         t2.start();
