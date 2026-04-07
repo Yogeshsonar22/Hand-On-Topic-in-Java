@@ -1,0 +1,43 @@
+//race Condition generating and resolved By Synchronised keyword 
+
+
+class Counter {
+    int count;
+    public synchronized  void increament() {  //synchronized  at time one Thread acqire the critical resources
+        count++;
+    }
+}
+
+class MyThread extends Thread {
+    private Counter counter;
+
+    public MyThread(Counter counter) {
+        this.counter = counter;
+    }
+    public void run() {
+        for (int i = 0; i < 1000000; i++) {
+            counter.increament();
+        }
+    }
+}
+
+ public class Main {
+
+    public static void main(String[] args) throws Exception {
+        Counter counter = new Counter();
+         MyThread t1 = new MyThread(counter);
+        MyThread t2 = new MyThread(counter);
+
+        t1.start();
+       
+        t2.start();
+         t1.join();
+        t2.join();
+        
+
+        System.out.println(counter.count);
+
+    }
+
+
+}
