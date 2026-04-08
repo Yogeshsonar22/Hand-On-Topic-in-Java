@@ -1,0 +1,30 @@
+// newWorkStealingPool() 👉 Uses multiple cores (ForkJoinPool internally)
+
+
+import java.util.concurrent.*;
+
+public class Main {
+    public static void processTask(String taskName) {
+        System.out.println(Thread.currentThread().getName() + " processing " + taskName);
+    }
+
+    public static void main(String[] args) {
+        ExecutorService service = Executors.newWorkStealingPool();
+
+        for (int i = 1; i <= 5; i++) {
+            int taskId = i;
+            service.submit(() -> processTask("Task " + taskId));
+        }
+
+        try { Thread.sleep(2000); } catch (Exception e) {}
+    }
+}
+
+/*
+Your Output
+ForkJoinPool-1-worker-1 processing Task 1
+ForkJoinPool-1-worker-1 processing Task 2
+ForkJoinPool-1-worker-1 processing Task 3
+ForkJoinPool-1-worker-1 processing Task 4
+ForkJoinPool-1-worker-1 processing Task 5
+*/
