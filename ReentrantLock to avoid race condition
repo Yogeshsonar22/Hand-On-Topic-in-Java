@@ -41,3 +41,14 @@ public class Main {
         System.out.println("Final Count: " + counter.count);
     }
 }
+/*
+
+Skipped - lock already acquired
+Skipped - lock already acquired
+Skipped - lock already acquired
+Skipped - lock already acquired
+Skipped - lock already acquired
+Skipped - lock already acquired
+Skipped - lock already acquired
+Final Count: 19993
+*/
