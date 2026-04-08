@@ -5,7 +5,7 @@ class Counter {
     ReentrantLock lock = new ReentrantLock();
 
     public void increment() {
-        if (lock.tryLock()) {   // try to acquire lock
+        if (lock.tryLock()) {   // try to acquire lock f available else skip then we get less count value so use lock.lock to get all value  
             try {
                 count++;
             } finally {
