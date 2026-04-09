@@ -1,0 +1,52 @@
+import java.util.*;
+import java.util.concurrent.*;
+
+public class Main {
+
+    // task method
+    public static int methodTask(int i) {
+        return i * 10;
+    }
+
+    public static void main(String[] args) throws Exception {
+
+        ExecutorService service = Executors.newFixedThreadPool(2);
+
+        List < Future < Integer >> list = new ArrayList < > ();
+
+        // using Callable
+        for (int i = 0; i < 5; i++) {
+            int task = i;
+
+            Callable < Integer > callableTask = () -> methodTask(task); /// Callableinterface  
+
+            list.add(service.submit(callableTask));
+        }
+
+        // get results
+        for (Future < Integer > f: list) {
+            System.out.println("Future: " + f.get());
+        }
+
+        service.shutdown();
+    }
+}
+
+/*   ------------------------------------------------
+service.submit(() -> methodTask(task));
+
+👉 This already works like Callable internally
+(because lambda returns value)
+
+🔹 Now (explicit Callable)
+Callable<Integer> callableTask = () -> methodTask(task);
+
+-------------------------------------------
+Output:
+
+Future: 0
+Future: 10
+Future: 20
+Future: 30
+Future: 40
+*/
