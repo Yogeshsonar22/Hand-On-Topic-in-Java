@@ -1,0 +1,48 @@
+class MyThread extends Thread {
+    public void run()
+    {
+        System.out.println(Thread.currentThread().getName());
+    }
+}
+public class Main {
+
+    public static void main(String[] atgd) {
+        MyThread th1 = new MyThread();
+        MyThread th2 = new MyThread();
+
+        th1.start();
+        th2.start();
+
+    }
+}
+
+
+// OR----------------------by passing custom name ---------------------------
+/*
+class MyThread extends Thread{
+  
+String name;
+  public MyThread(String name){
+    this.name = name;
+  }
+
+   public void run()
+{
+  System.out.println(name);
+}  
+}
+public class Main{
+  
+  public static void main(String [] atgd){
+    MyThread th1 = new MyThread("ram _01");
+    MyThread th2 = new MyThread("shyam_02");
+    
+    
+    th1.start();
+    th2.start();
+    
+    
+  }
+}
+
+*/
