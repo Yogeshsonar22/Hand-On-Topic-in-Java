@@ -1,0 +1,39 @@
+//CompletableFuture: multiple tasks need to run asynchronously (parallel)
+
+import java.util.concurrent.*;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        CompletableFuture<String> task1 =
+                CompletableFuture.supplyAsync(() -> "User Data");
+
+        CompletableFuture<String> task2 =
+                CompletableFuture.supplyAsync(() -> "Order Data");
+
+        CompletableFuture<String> task3 =
+                CompletableFuture.supplyAsync(() -> "Payment Data");
+
+        CompletableFuture.allOf(task1, task2, task3)
+                .thenRun(() -> {
+                    try {
+                        System.out.println(task1.get());
+                        System.out.println(task2.get());
+                        System.out.println(task3.get());
+                    } catch (Exception e) {
+                    }
+                });
+        System.out.println("Main thread continues...");
+    }
+}
+
+/*
+Your Output: 
+
+Main thread continues...
+User Data
+Order Data
+Payment Data
+
+*/
