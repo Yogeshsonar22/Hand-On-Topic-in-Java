@@ -1,0 +1,219 @@
+📘 MASTER JAVA MENU
+MODULE 1: Java Basics / Fundamentals
+    What is Java
+    History of Java
+    Features of Java
+    JVM, JDK, JRE
+    How Java works
+    First Java Program
+    Compilation process
+    Variables
+    Data Types
+    Type Casting
+    Operators
+    User Input (Scanner)
+    If / Else
+    Switch
+    Loops (for, while, do while)
+    Break / Continue
+    Arrays
+    2D Arrays
+    String Basics
+    
+    
+MODULE 2: OOPs Concepts
+    Class & Object
+    Constructor
+    Constructor Overloading
+    this keyword
+    Static keyword
+    Instance vs Static variable
+    Inheritance
+    Method Overriding
+    Polymorphism
+    Method Overloading
+    Encapsulation
+    Abstraction
+    Interface
+    Multiple Inheritance using Interface
+    Association
+    Aggregation
+    Composition
+    
+    
+MODULE 3: Java Keywords & Modifiers
+    final
+    finally
+    finalize()
+    super
+    this
+    static
+    transient
+    volatile
+    synchronized
+    native
+    strictfp
+    Access Modifiers
+    
+    
+MODULE 4: Strings Deep Theory
+    String vs StringBuilder vs StringBuffer
+    String Pool
+    Immutable String
+    Common String Methods
+    String Interview Questions
+    MODULE 5: Exception Handling
+    Exception hierarchy
+    try-catch
+    finally
+    throw
+    throws
+    Checked vs Unchecked Exception
+    Custom Exception
+    
+    
+MODULE 6: Arrays & DSA Basics in Java
+    Array operations
+    Sorting
+    Searching
+    Binary Search
+    Recursion
+    Patterns
+    Time Complexity basics
+    
+    
+MODULE 7: Collection Framework ⭐
+    List Interface
+    ArrayList
+    LinkedList
+    Vector
+    Stack
+    Queue
+    PriorityQueue
+    Deque
+    Set
+    HashSet
+    LinkedHashSet
+    TreeSet
+    Map
+    HashMap
+    LinkedHashMap
+    TreeMap
+    Hashtable
+    Iterator
+    Comparable
+    Comparator
+    
+    
+MODULE 8: Java 8 Features ⭐
+    Lambda Expression
+    Functional Interface
+    Predicate
+    Function
+    Consumer
+    Supplier
+    Method Reference
+    Stream API
+    Collectors
+    Optional
+    Date Time API
+    CompletableFuture
+    
+MODULE 9: Multithreading ⭐
+    What is Thread
+    Thread lifecycle
+    Create thread ways
+    Runnable
+    Callable
+    ExecutorService
+    Future
+    CompletableFuture
+    Synchronization
+    Race Condition
+    Deadlock
+    wait notify
+    join()
+    sleep()
+    volatile
+    CountDownLatch
+    Semaphore
+    
+    
+MODULE 10: File Handling / I/O
+    File class
+    FileReader
+    BufferedReader
+    FileWriter
+    Serialization
+    Deserialization
+    
+    
+MODULE 11: JDBC (Database) ⭐
+    What is JDBC
+    JDBC Architecture
+    DriverManager
+    Connection
+    Statement
+    PreparedStatement
+    ResultSet
+    CRUD using JDBC
+    Transaction Handling
+    Batch Processing
+    
+    
+MODULE 12: Advanced Java (Enterprise Basics)
+    Servlet basics
+    Servlet lifecycle
+    Request / Response
+    Session Tracking
+    Cookies
+    JSP basics
+    JSTL
+    MVC pattern
+    
+    
+MODULE 13: Spring / Modern Java Backend Path
+    Spring Framework intro
+    Dependency Injection
+    Spring Boot
+    REST API
+    JPA / Hibernate
+    Validation
+    Exception Handling
+    Security basics
+    Microservices intro
+    
+    
+MODULE 14: JVM Internals
+    Heap / Stack Memory
+    Garbage Collection
+    Memory Leak
+    ClassLoader
+    JIT Compiler
+    
+    
+MODULE 15: Interview Special ⭐
+    == vs equals()
+    HashMap internal working
+    String immutable why
+    Why multiple inheritance not in class
+    Marker Interface
+    Serialization interview
+    Thread interview
+    Collection interview
+    
+    
+Java 8 interview
+    Spring interview
+📌 Recommended Learning Order
+    Basics
+    → OOPs
+    → String
+    → Exception
+    → Collections
+    → Java 8
+    → Multithreading
+    → JDBC
+    → Advanced Java
+    → Spring Boot
+    → Interview Topics
