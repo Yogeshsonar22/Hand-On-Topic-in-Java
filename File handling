@@ -19,26 +19,24 @@ class Main {
 }
 
 ---------------------------------------------------------
-//or with try catch blog 
+//or with try-with-resource block 
+
 import java.io.*;
 
-public class Main {
-
+class Main {
     public static void main(String[] args) {
 
-        try {
+        try (
+            BufferedWriter bw = new BufferedWriter(new FileWriter("demo.txt"));
+            BufferedReader br = new BufferedReader(new FileReader("demo.txt"))
+        ) {
+            bw.write("Hello Java");
+            bw.flush();
 
-            FileWriter fw = new FileWriter("demo.txt");
-
-            fw.write("Hello File Handling");
-
-            fw.close();
-
-            System.out.println("File Written Successfully");
+            System.out.println(br.readLine());
 
         } catch (Exception e) {
-
-            System.out.println("Error: " + e);
+            System.out.println(e);
         }
     }
 }
