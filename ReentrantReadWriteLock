@@ -40,3 +40,10 @@ class Main {
         new Thread(read, "Reader-3").start();
     }
 }
+
+//Output:
+Reader-1 Reading Value = 0
+Reader-3 Reading Value = 0
+Reader-2 Reading Value = 0
+Writer-1 Writing Value = 100
+
