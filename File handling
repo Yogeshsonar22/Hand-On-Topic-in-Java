@@ -1,0 +1,44 @@
+import java.io.*;
+
+class Main {
+    public static void main(String[] args) throws Exception {
+
+        BufferedWriter bw =
+            new BufferedWriter(new FileWriter("demo.txt"));
+
+        bw.write("Hello");
+        bw.close();
+
+        BufferedReader br =
+            new BufferedReader(new FileReader("demo.txt"));
+
+        System.out.println(br.readLine());
+
+        br.close();
+    }
+}
+
+---------------------------------------------------------
+//or with try catch blog 
+import java.io.*;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        try {
+
+            FileWriter fw = new FileWriter("demo.txt");
+
+            fw.write("Hello File Handling");
+
+            fw.close();
+
+            System.out.println("File Written Successfully");
+
+        } catch (Exception e) {
+
+            System.out.println("Error: " + e);
+        }
+    }
+}
