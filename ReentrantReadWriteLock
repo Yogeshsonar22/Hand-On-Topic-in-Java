@@ -1,0 +1,42 @@
+//ReentrantReadWriteLock allows multiple readers simultaneously and single writer run,
+//improving performance in read-heavy applications.
+
+import java.util.concurrent.locks.*;
+
+class Main {
+
+    static int value = 0;
+
+    static ReadWriteLock lock = new ReentrantReadWriteLock();
+
+    public static void main(String[] args) {
+
+        // Read Task
+        Runnable read = () -> {
+            lock.readLock().lock();
+            try {
+                System.out.println(Thread.currentThread().getName()
+                        + " Read = " + value);
+            } finally {
+                lock.readLock().unlock();
+            }
+        };
+
+        // Write Task
+        Runnable write = () -> {
+            lock.writeLock().lock();
+            try {
+                value = 100;
+                System.out.println(Thread.currentThread().getName()
+                        + " Write = " + value);
+            } finally {
+                lock.writeLock().unlock();
+            }
+        };
+
+        new Thread(read, "Reader-1").start();
+        new Thread(read, "Reader-2").start();
+        new Thread(write, "Writer").start();
+        new Thread(read, "Reader-3").start();
+    }
+}
