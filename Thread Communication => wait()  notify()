@@ -1,0 +1,44 @@
+class Shared {
+
+    synchronized void waitMethod() throws Exception {
+
+        System.out.println("Thread Waiting...");
+        wait();
+        System.out.println("Thread Resumed");      }
+
+    synchronized void notifyMethod() {
+
+        System.out.println("Thread Notify...");
+        notify();
+    }
+}
+
+public class Main {
+
+    public static void main(String[] args) throws Exception {
+
+        Shared obj = new Shared();
+
+        Thread t1 = new Thread(() -> {
+            try {
+                obj.waitMethod();
+            }
+            catch (Exception e) {}
+        });
+
+        Thread t2 = new Thread(() -> obj.notifyMethod());
+
+        t1.start();
+
+        Thread.sleep(2000);
+
+        t2.start();
+    }
+}
+
+/*
+Your Output
+Thread Waiting...
+Thread Notify...
+Thread Resumed
+*/
