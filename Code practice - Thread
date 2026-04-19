@@ -2,7 +2,7 @@ Code practice
 
 //craete Thread -> thread class & Runnable interface
 //use of method join & yield code
-//Thread with setPriority Mi=IN MAX NORM
+//Thread with setPriority (MIN MAX NORM)
 //Thread Communication => wait() notify()
 //
 
