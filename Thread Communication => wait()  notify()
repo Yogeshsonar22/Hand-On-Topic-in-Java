@@ -48,6 +48,11 @@ public class Main {
     }
 }
 /*
+Explanation: 
+t1 or producer calls & acquired lock -> do some work -> wait () called -> consumer wait() until notify  called 
+t2 or Consumer calls & acquired lock -> do some work -> notifycall()-> t1 or producertakes lock aging and excute 
+
+one-time producer run and then consumer run, like below
 Your Output
 Produced: 1
 Consumed: 1
