@@ -1,44 +1,58 @@
 class Shared {
+    int data;
+    boolean available = false;
 
-    synchronized void waitMethod() throws Exception {
+    synchronized void produce(int value) throws Exception {
+        while (available)
+            wait();
 
-        System.out.println("Thread Waiting...");
-        wait();
-        System.out.println("Thread Resumed");      }
+        data = value;
+        System.out.println("Produced: " + data);
 
-    synchronized void notifyMethod() {
+        available = true;
+        notify();
+    }
 
-        System.out.println("Thread Notify...");
+    synchronized void consume() throws Exception {
+        while (!available)
+            wait();
+
+        System.out.println("Consumed: " + data);
+
+        available = false;
         notify();
     }
 }
 
 public class Main {
-
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
 
         Shared obj = new Shared();
 
-        Thread t1 = new Thread(() -> {
+        Thread producer = new Thread(() -> {
             try {
-                obj.waitMethod();
-            }
-            catch (Exception e) {}
+                for (int i = 1; i <= 5; i++)
+                    obj.produce(i);
+            } catch (Exception e) {}
         });
 
-        Thread t2 = new Thread(() -> obj.notifyMethod());
+        Thread consumer = new Thread(() -> {
+            try {
+                for (int i = 1; i <= 5; i++)
+                    obj.consume();
+            } catch (Exception e) {}
+        });
 
-        t1.start();
-
-        Thread.sleep(2000);
-
-        t2.start();
+        producer.start();
+        consumer.start();
     }
 }
-
 /*
 Your Output
-Thread Waiting...
-Thread Notify...
-Thread Resumed
+Produced: 1
+Consumed: 1
+Produced: 2
+Consumed: 2
+Produced: 3
+Consumed: 3
 */
