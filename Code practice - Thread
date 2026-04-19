@@ -8,7 +8,7 @@ Code practice
 
 
 //race condition -> (Synchronized  & Renentrantlock())
-//ReentrantReadWriteLock _> used when multiple Thread reading at same time, only one thread is write.
+//ReentrantReadWriteLock -> used when multiple threads are reading at the same time, only one thread writes.
 
 //Thread create by Executor framework ->  FixedThreadPool, CachedThreadPool(),SingleThreadExcutorService,  ScheduledThreadPool() 
 
