@@ -2,10 +2,19 @@ Code practice
 
 //craete Thread -> thread class & Runnable interface
 //use of method join & yield code
+//Thread with setPriority Mi=IN MAX NORM
+//Thread Communication => wait() notify()
+//
+
 
 //race condition -> (Synchronized  & Renentrantlock())
+//ReentrantReadWriteLock _> used when multiple Thread reading at same time, only one thread is write.
+
 //Thread create by Executor framework ->  FixedThreadPool, CachedThreadPool(),SingleThreadExcutorService,  ScheduledThreadPool() 
 
 //Executorservice with Callable & future interface
 //future with all methods
 //CompletableFuture
+
+
+
