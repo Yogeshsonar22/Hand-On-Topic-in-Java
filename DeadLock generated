@@ -1,0 +1,38 @@
+class Test {
+    static Object lock1 = new Object();
+    static Object lock2 = new Object();
+
+    public static void main(String[] args) {
+
+        Thread t1 = new Thread(() -> {
+            synchronized(lock1) {
+                System.out.println("T1 locked lock1");
+
+                synchronized(lock2) {
+                    System.out.println("T1 locked lock2");
+                }
+            }
+        });
+
+        Thread t2 = new Thread(() -> {
+            synchronized(lock2) {
+                System.out.println("T2 locked lock2");
+
+                synchronized(lock1) {
+                    System.out.println("T2 locked lock1");
+                }
+            }
+        });
+
+        t1.start();
+        t2.start();
+    }
+}
+
+/*
+T1 gets lock1
+T2 gets lock2
+T1 waits for lock2
+T2 waits for lock1
+= Deadlock
+*/
