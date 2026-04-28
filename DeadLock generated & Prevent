@@ -36,3 +36,24 @@ T1 waits for lock2
 T2 waits for lock1
 = Deadlock
 */
+
+
+Prevent Deadlock by trylock 
+import java.util.concurrent.locks.ReentrantLock;
+
+ReentrantLock lock1 = new ReentrantLock();
+ReentrantLock lock2 = new ReentrantLock();
+
+if (lock1.tryLock()) {
+    try {
+        if (lock2.tryLock()) {
+            try {
+                // critical section
+            } finally {
+                lock2.unlock();
+            }
+        }
+    } finally {
+        lock1.unlock();
+    }
+}
